@@ -75,6 +75,6 @@ public class SchoolManagementSystem {
     public static void main(String[] args) {
 
       Teacher teacher = new Teacher("Mr Sharma",40,"Mathematics",50000);
-      Student student = new Student ("Rahul",20,101,"Computer Science");s
+      Student student = new Student ("Rahul",20,101,"Computer Science");
    }
 }
