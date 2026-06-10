@@ -4,22 +4,24 @@ class Person {
     String name;
     int age;
 
-
+   
     Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
-
+    
     void showRole() {
-        System.out.println("I am a person in the school system.");
+        System.out.println("I am a person in the school.");
     }
 
+    
     void displayInfo() {
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
     }
 }
+
 
 
 class Teacher extends Person {
@@ -34,47 +36,74 @@ class Teacher extends Person {
         this.salary = salary;
     }
 
-    
+  
     void showRole() {
         System.out.println("I am a Teacher. I teach students.");
     }
 
-    void displayTeacherInfo() {
+    void displayTeacher() {
         displayInfo();
         System.out.println("Subject: " + subject);
         System.out.println("Salary: " + salary);
     }
 }
 
+
+
 class Student extends Person {
 
     int rollNumber;
     String course;
 
-    // Constructor
+    
     Student(String name, int age, int rollNumber, String course) {
         super(name, age);
         this.rollNumber = rollNumber;
         this.course = course;
     }
 
-
     void showRole() {
         System.out.println("I am a Student. I study subjects.");
     }
 
-    void displayStudentInfo() {
+    void displayStudent() {
         displayInfo();
         System.out.println("Roll Number: " + rollNumber);
         System.out.println("Course: " + course);
     }
 }
 
+
+
 public class SchoolManagementSystem {
 
     public static void main(String[] args) {
 
-      Teacher teacher = new Teacher("Mr Sharma",40,"Mathematics",50000);
-      Student student = new Student ("Rahul",20,101,"Computer Science");
-   }
+       
+        Teacher teacher = new Teacher("Rahul", 35, "Mathematics", 50000);
+        Student student = new Student("Aman", 20, 101, "Computer Science");
+
+       
+        Person[] people = new Person[2];
+
+        people[0] = teacher;
+        people[1] = student;
+
+        
+        for (Person p : people) {
+
+            p.showRole();
+            System.out.println("-------------------");
+
+            if (p instanceof Teacher) {
+                ((Teacher) p).displayTeacher();
+            }
+
+            else if (p instanceof Student) {
+                ((Student) p).displayStudent();
+            }
+
+            System.out.println();
+        }
+    }
 }
